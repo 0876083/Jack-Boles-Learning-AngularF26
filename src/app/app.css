@@ -1,0 +1,47 @@
+.container {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.record-card {
+  background-color: #cfe8f4;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.record-card:hover {
+  transform: translateY(-5px);
+}
+
+.record-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.record-card p {
+  margin: 0.25rem 0;
+}
+
+.record-card p:first-of-type {
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .record-card {
+    padding: 15px;
+  }
+}

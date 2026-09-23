@@ -1,1 +1,18 @@
-<h1>Hello, {{firstName}} {{lastName}}</h1>
+<div class="container">
+  <h1>My Record Collection</h1>
+  @for (record of recordList; track record.id) {
+    <div class="record-card">
+      <h2>{{ record.title }}</h2>
+      <p>Artist: {{ record.artist }}</p>
+      <p>Genre: {{ record.genre }}</p>
+
+      @if (record.yearReleased) {
+        <p>Released: {{ record.yearReleased }}</p>
+      } @else {
+        <p>Release year unknown</p>
+      }
+    </div>
+  } @empty {
+    <p>No records to show yet.</p>
+  }
+</div>
