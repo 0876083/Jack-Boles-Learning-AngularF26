@@ -1,1 +1,9 @@
-<p>record-list works!</p>
+<h1>Record List</h1>
+
+<div class="record-list">
+  @for (records of recordList; track records.id) {
+    <app-record-list-item [record]="records"></app-record-list-item>
+  } @empty {
+    <p>No records to show yet.</p>
+  }
+</div>

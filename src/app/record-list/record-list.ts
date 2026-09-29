@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Record } from '../shared/models/record';
+import { RecordListItem } from '../record-list-item/record-list-item';
 
 @Component({
-  imports: [],
+  imports: [RecordListItem],
   selector: 'app-record-list',
   styleUrl: './record-list.css',
   templateUrl: './record-list.html',

@@ -1,1 +1,26 @@
-<p>record-list-item works!</p>
+<div class="record-card">
+  <h2>{{ record().title }}</h2>
+
+  <p>Artist: {{ record().artist }}</p>
+
+  @switch (record().genre) {
+    @case ('Rock') {
+      <span class="badge rock">Rock</span>
+    }
+    @case ('Grunge') {
+      <span class="badge grunge">Grunge</span>
+    }
+    @case ('Punk') {
+      <span class="badge punk">Punk</span>
+    }
+    @default {
+      <span class="badge">Other Genre</span>
+    }
+  }
+
+  @if (record().yearReleased) {
+    <p>Released: {{ record().yearReleased }}</p>
+  } @else {
+    <p>Release year unknown</p>
+  }
+</div>
