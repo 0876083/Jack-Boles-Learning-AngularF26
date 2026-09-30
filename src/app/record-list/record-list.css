@@ -1,0 +1,15 @@
+.even {
+  background-color: #fa8388;
+}
+
+.odd {
+  background-color: #9dffed;
+}
+
+.last {
+  border-bottom: none;
+}
+
+.first {
+  font-weight: bold;
+}

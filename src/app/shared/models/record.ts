@@ -4,4 +4,5 @@ export interface Record {
   title: string;
   genre: string;
   yearReleased?: number;
+  image: string;
 }

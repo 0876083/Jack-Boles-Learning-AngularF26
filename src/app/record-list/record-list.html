@@ -1,11 +1,22 @@
 <h1>Record List</h1>
 
 <div class="record-list">
-  @for (records of recordList; track records.id) {
-    <app-record-list-item
-      [record]="records"
-      (recordEvent)="handleRecordEvent($event)">
-    </app-record-list-item>
+  @for (records of recordList; track records.id; let even = $even, odd = $odd, count = $count, first = $first, last = $last) {
+    @if (first) {
+      <h2>Showing {{ count }} records</h2>
+      <span class="first">First Record</span>
+    }
+
+    <div
+      [class.even]="even"
+      [class.odd]="odd"
+      [class.last]="last">
+
+      <app-record-list-item
+        [record]="records"
+        (recordEvent)="handleRecordEvent($event)">
+      </app-record-list-item>
+    </div>
   } @empty {
     <p>No records to show yet.</p>
   }
