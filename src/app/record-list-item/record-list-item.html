@@ -1,5 +1,7 @@
 <div class="record-card" (click)="openRecord()">
 
+  <img [src]="record().image" [alt]="record().title">
+
   <h2>{{ record().title }}</h2>
 
   <p>Artist: {{ record().artist }}</p>
