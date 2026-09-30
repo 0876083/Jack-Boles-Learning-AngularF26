@@ -2,7 +2,10 @@
 
 <div class="record-list">
   @for (records of recordList; track records.id) {
-    <app-record-list-item [record]="records"></app-record-list-item>
+    <app-record-list-item
+      [record]="records"
+      (recordEvent)="handleRecordEvent($event)">
+    </app-record-list-item>
   } @empty {
     <p>No records to show yet.</p>
   }

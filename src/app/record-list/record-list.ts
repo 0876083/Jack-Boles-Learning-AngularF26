@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Record } from '../shared/models/record';
 import { RecordListItem } from '../record-list-item/record-list-item';
+import { RecordEvent } from '../shared/models/record-event';
 
 @Component({
   imports: [RecordListItem],
@@ -52,4 +53,8 @@ export class RecordList {
       yearReleased: 1999
     }
   ];
+
+  handleRecordEvent(event: RecordEvent): void {
+    console.log(event);
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Record } from '../shared/models/record';
+import { RecordEvent } from '../shared/models/record-event';
 
 @Component({
   imports: [],
@@ -8,5 +9,13 @@ import { Record } from '../shared/models/record';
   templateUrl: './record-list-item.html',
 })
 export class RecordListItem {
-  item = input.required<Record>();
+  record = input.required<Record>();
+  recordEvent = output<RecordEvent>();
+
+  protected openRecord(): void {
+    this.recordEvent.emit({
+      id: this.record().id,
+      action: 'opened',
+    });
+  }
 }
