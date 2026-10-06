@@ -1,6 +1,9 @@
 <h1>My Records List</h1>
 
-<p>Number of Rock Records: {{ rockRecords().length }}</p>
+
+
+
+<p>Number of Rock Records: {{ rockRecordCount() }}</p>
 
 <div class="record-list">
   @for (records of recordList(); track records.id; let even = $even, odd = $odd, count = $count, first = $first, last = $last) {

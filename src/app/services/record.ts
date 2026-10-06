@@ -59,9 +59,15 @@ export class RecordService {
     this.records.update((list) => [...list, r]);
   }
 
+  removeRecord(id: number | string): void {
+    this.records.update((list) => list.filter(record => record.id !== id));
+  }
+
   readonly rockRecords = computed(() =>
     this.records().filter(record => record.genre === 'Rock')
   );
+
+  readonly rockRecordCount = computed(() => this.rockRecords().length);
 
   constructor() {
     effect(() => {

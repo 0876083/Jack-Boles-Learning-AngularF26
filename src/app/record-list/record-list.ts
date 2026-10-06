@@ -14,8 +14,9 @@ export class RecordList {
 
   recordList = this.recordService.recordList;
   rockRecords = this.recordService.rockRecords;
+  rockRecordCount = this.recordService.rockRecordCount;
 
   handleRecordEvent(event: RecordEvent): void {
-    console.log(event);
+    this.recordService.removeRecord(event.id);
   }
 }
