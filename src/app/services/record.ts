@@ -1,4 +1,4 @@
-import { Service, signal } from '@angular/core';
+import { computed, Service, effect, signal } from '@angular/core';
 import { Record } from '../shared/models/record';
 
 @Service()
@@ -53,5 +53,19 @@ export class RecordService {
     }
   ]);
 
-  recordList = this.records.asReadonly();
+  readonly recordList = this.records.asReadonly();
+
+  addRecord(r: Record): void {
+    this.records.update((list) => [...list, r]);
+  }
+
+  readonly rockRecords = computed(() =>
+    this.records().filter(record => record.genre === 'Rock')
+  );
+
+  constructor() {
+    effect(() => {
+      console.log('Record count:', this.records().length);
+    });
+  }
 }

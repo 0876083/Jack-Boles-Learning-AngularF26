@@ -12,7 +12,8 @@ import { RecordService } from '../services/record';
 export class RecordList {
   private recordService = inject(RecordService);
 
-  protected recordList = this.recordService.recordList;
+  recordList = this.recordService.recordList;
+  rockRecords = this.recordService.rockRecords;
 
   handleRecordEvent(event: RecordEvent): void {
     console.log(event);
