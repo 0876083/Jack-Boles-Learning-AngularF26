@@ -13,8 +13,8 @@ export class RecordList {
   private recordService = inject(RecordService);
 
   recordList = this.recordService.recordList;
-  rockRecords = this.recordService.rockRecords;
   rockRecordCount = this.recordService.rockRecordCount;
+  recordsWithYear = this.recordService.recordsWithYear;
 
   handleRecordEvent(event: RecordEvent): void {
     this.recordService.removeRecord(event.id);

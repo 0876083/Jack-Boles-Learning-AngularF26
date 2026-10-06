@@ -67,7 +67,13 @@ export class RecordService {
     this.records().filter(record => record.genre === 'Rock')
   );
 
-  readonly rockRecordCount = computed(() => this.rockRecords().length);
+  readonly rockRecordCount = computed(() =>
+    this.rockRecords().length
+  );
+
+  readonly recordsWithYear = computed(() =>
+    this.records().filter(record => record.yearReleased)
+  );
 
   constructor() {
     effect(() => {
