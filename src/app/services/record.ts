@@ -1,8 +1,8 @@
-import { computed, inject, Service, effect, signal } from '@angular/core';
+import { computed, inject, Injectable, effect, signal } from '@angular/core';
 import { Record } from '../shared/models/record';
 import { RECORD_CONFIG } from '../shared/record-config';
 
-@Service()
+@Injectable()
 export class RecordService {
   private config = inject(RECORD_CONFIG);
 
