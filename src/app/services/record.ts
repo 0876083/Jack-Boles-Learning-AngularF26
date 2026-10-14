@@ -1,8 +1,11 @@
-import { computed, Service, effect, signal } from '@angular/core';
+import { computed, inject, Service, effect, signal } from '@angular/core';
 import { Record } from '../shared/models/record';
+import { RECORD_CONFIG } from '../shared/record-config';
 
 @Service()
 export class RecordService {
+  private config = inject(RECORD_CONFIG);
+
   private records = signal<Record[]>([
     {
       id: 1,
@@ -54,6 +57,7 @@ export class RecordService {
   ]);
 
   readonly recordList = this.records.asReadonly();
+  readonly defaultGenre = this.config.defaultGenre;
 
   addRecord(r: Record): void {
     this.records.update((list) => [...list, r]);
@@ -64,7 +68,7 @@ export class RecordService {
   }
 
   readonly rockRecords = computed(() =>
-    this.records().filter(record => record.genre === 'Rock')
+    this.records().filter(record => record.genre === this.config.defaultGenre)
   );
 
   readonly rockRecordCount = computed(() =>
