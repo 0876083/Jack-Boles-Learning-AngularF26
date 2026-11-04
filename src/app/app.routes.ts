@@ -9,6 +9,6 @@ export const routes: Routes = [
   },
   {
     path: 'records/:id',
-    component: RecordDetail,
+    component: RecordDetail
   },
 ];

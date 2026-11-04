@@ -1,0 +1,57 @@
+<h2>Add a New Record</h2>
+
+<form class="record-form" [formGroup]="recordForm" (ngSubmit)="onSubmit()">
+  <label>
+    Artist:
+    <input type="text" formControlName="artist" />
+  </label>
+
+  @if (recordForm.controls.artist.touched &&
+  recordForm.controls.artist.hasError('required')) {
+    <p class="error">Artist is required.</p>
+  }
+
+  <label>
+    Album Title:
+    <input type="text" formControlName="title" />
+  </label>
+
+  @if (recordForm.controls.title.touched &&
+  recordForm.controls.title.hasError('required')) {
+    <p class="error">Album title is required.</p>
+  }
+
+  @if (recordForm.controls.title.touched &&
+  recordForm.controls.title.hasError('minlength')) {
+    <p class="error">Album title must be at least 2 characters long.</p>
+  }
+
+  <label>
+    Genre:
+    <select formControlName="genre">
+      <option value="Rock">Rock</option>
+      <option value="Grunge">Grunge</option>
+      <option value="Punk">Punk</option>
+      <option value="Alternative">Alternative</option>
+    </select>
+  </label>
+
+  @if (recordForm.controls.genre.touched &&
+  recordForm.controls.genre.hasError('required')) {
+    <p class="error">Genre is required.</p>
+  }
+
+  <label>
+    Year Released:
+    <input type="number" formControlName="yearReleased" />
+  </label>
+
+  <label>
+    Album Artwork:
+    <input type="text" formControlName="image" />
+  </label>
+
+  <button type="submit" [disabled]="recordForm.invalid">
+    Add Record
+  </button>
+</form>
