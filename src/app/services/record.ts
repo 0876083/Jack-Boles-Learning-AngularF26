@@ -67,6 +67,18 @@ export class RecordService {
     this.records.update((list) => list.filter(record => record.id !== id));
   }
 
+  updateRecord(updatedRecord: Record): void {
+    this.records.update(records =>
+      records.map(record =>
+        record.id === updatedRecord.id ? updatedRecord : record
+      )
+    );
+  }
+
+  getRecord(id: number): Record | undefined {
+    return this.records().find(record => record.id === id);
+  }
+
   readonly rockRecords = computed(() =>
     this.records().filter(record => record.genre === this.config.defaultGenre)
   );

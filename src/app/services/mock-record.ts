@@ -42,6 +42,14 @@ export class MockRecordService {
     this.records.update(list => list.filter(record => record.id !== id));
   }
 
+  updateRecord(r: Record): void {
+    this.records.update(records =>
+      records.map(record =>
+        record.id === r.id ? r : record
+      )
+    );
+  }
+
   readonly defaultGenre = this.config.defaultGenre;
 
   readonly rockRecords = computed(() =>

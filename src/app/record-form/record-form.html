@@ -1,4 +1,4 @@
-<h2>Add a New Record</h2>
+<h2>{{  isEditMode() ? 'Edit Record' : 'Add a New Record' }}</h2>
 
 <form class="record-form" [formGroup]="recordForm" (ngSubmit)="onSubmit()">
   <label>
@@ -52,6 +52,6 @@
   </label>
 
   <button type="submit" [disabled]="recordForm.invalid">
-    Add Record
+    {{ isEditMode() ? 'Save Changes' : 'Add Record' }}
   </button>
 </form>
