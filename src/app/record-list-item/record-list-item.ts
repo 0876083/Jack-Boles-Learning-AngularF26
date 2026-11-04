@@ -1,9 +1,10 @@
 import { Component, input, output } from '@angular/core';
 import { Record } from '../shared/models/record';
 import { RecordEvent } from '../shared/models/record-event';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-record-list-item',
   styleUrl: './record-list-item.css',
   templateUrl: './record-list-item.html',

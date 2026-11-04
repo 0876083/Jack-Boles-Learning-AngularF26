@@ -1,5 +1,4 @@
-<div class="record-card" (click)="openRecord()">
-
+<div class="record-card">
   <img [src]="record().image" [alt]="record().title">
 
   <h2>{{ record().title }}</h2>
@@ -26,4 +25,8 @@
   } @else {
     <p>Release year unknown</p>
   }
+
+<a [routerLink]="['/records', record().id]" class="details-link">View details</a>
+
 </div>
+

@@ -1,0 +1,26 @@
+@if (record(); as r) {
+  <article class="detail">
+    <h2>{{ r.title }}</h2>
+    <img [src]="r.image" [alt]="r.title" width="250">
+    <p><strong>Artist:</strong> {{ r.artist }}</p>
+    <p><strong>Genre:</strong> {{ r.genre }}</p>
+    @if (r.yearReleased) {
+      <p><strong>Year Released:</strong> {{ r.yearReleased }}</p>
+    } @else {
+      <p>Release year unknown.</p>
+    }
+  </article>
+
+  <a routerLink="/records">Back to all records</a>
+} @else {
+  <p>No record with id {{ id() }}.</p>
+  <a routerLink="/records">Back to all records</a>
+}
+
+
+
+
+
+
+
+
