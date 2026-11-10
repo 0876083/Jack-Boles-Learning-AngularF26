@@ -1,4 +1,4 @@
-<h2>{{  isEditMode() ? 'Edit Record' : 'Add a New Record' }}</h2>
+<h2>{{ isEditMode() ? 'Edit Record' : 'Add a New Record' }}</h2>
 
 <form class="record-form" [formGroup]="recordForm" (ngSubmit)="onSubmit()">
   <label>
@@ -24,6 +24,17 @@
   @if (recordForm.controls.title.touched &&
   recordForm.controls.title.hasError('minlength')) {
     <p class="error">Album title must be at least 2 characters long.</p>
+  }
+
+  @if (recordForm.controls.title.touched &&
+  recordForm.controls.title.hasError('whitespace')) {
+    <p class="error">Album title cannot contain only spaces.</p>
+  }
+
+  @if (recordForm.controls.artist.touched &&
+  recordForm.controls.title.touched &&
+  recordForm.hasError('artistTitleMatch')) {
+    <p class="error">Artist and album title cannot be the same.</p>
   }
 
   <label>
