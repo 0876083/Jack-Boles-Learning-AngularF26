@@ -2,8 +2,6 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { RECORD_CONFIG } from './shared/record-config';
-import { RecordService } from './services/record';
-import { MockRecordService } from './services/mock-record';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,12 +13,6 @@ export const appConfig: ApplicationConfig = {
         apiBaseUrl: 'https://placeholder.example.com/api',
         defaultGenre: 'Rock',
       },
-    },
-
-    //To use the real service again remove this provider.
-    {
-      provide: RecordService,
-      useClass: MockRecordService,
     },
   ],
 };
