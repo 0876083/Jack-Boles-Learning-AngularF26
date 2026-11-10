@@ -1,0 +1,25 @@
+
+.detail {
+  background-color: #8cc8ef;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.detail p {
+  margin: 0.25rem 0;
+}
+
+.detail img {
+  max-width: 100%;
+  height: auto;
+}
+
+.favourite-button {
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
