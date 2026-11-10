@@ -1,13 +1,21 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { RecordList } from './record-list/record-list';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { GuardService } from './services/guard';
 
 @Component({
-  imports: [RouterOutlet, RecordList],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('Jack-Boles-Learning-AngularF26');
+  protected title = 'Record Collection'
+
+  private guardService = inject(GuardService);
+
+  protected guardEnabled = this.guardService.guardEnabled;
+
+  protected toggleGuard(): void {
+    this.guardService.toggleGuard();
+  }
 }

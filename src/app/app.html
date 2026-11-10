@@ -1,3 +1,20 @@
 <div class="container">
-  <router-outlet/>
+  <h1>My Record Collection</h1>
+
+  <nav class="nav-bar">
+    <a routerLink="/records" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      All Records
+    </a>
+
+    <a routerLink="/records/add" routerLinkActive="active">
+      Add Record
+    </a>
+
+    <button type="button" (click)="toggleGuard()">
+      {{ guardEnabled() ? 'Unlock Editing' : 'Lock Editing' }}
+    </button>
+  </nav>
+
+  <router-outlet />
 </div>
