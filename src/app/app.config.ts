@@ -10,7 +10,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: RECORD_CONFIG,
       useValue: {
-        apiBaseUrl: 'https://placeholder.example.com/api',
+        apiBaseUrl: 'https://itunes.apple.com',
         defaultGenre: 'Rock',
       },
     },
