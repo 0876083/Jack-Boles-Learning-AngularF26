@@ -1,6 +1,15 @@
 <div class="container">
   <h1>My Record Collection</h1>
 
+  @if (errorService.message()) {
+    <div class="error-banner">
+      <span>{{ errorService.message() }}</span>
+      <button type="button" (click)="errorService.clearError()">
+        Dismiss
+      </button>
+    </div>
+  }
+
   <nav class="nav-bar">
     <a routerLink="/records" routerLinkActive="active"
        [routerLinkActiveOptions]="{ exact: true }">

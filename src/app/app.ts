@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { GuardService } from './services/guard';
 import { LoadingService } from './services/loading';
+import { ErrorService } from './services/error';
 
 @Component({
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
@@ -14,6 +15,7 @@ export class App {
 
   private guardService = inject(GuardService);
   protected loadingService = inject(LoadingService);
+  protected errorService = inject(ErrorService);
 
   protected guardEnabled = this.guardService.guardEnabled;
 

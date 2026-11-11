@@ -4,6 +4,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { RECORD_CONFIG } from './shared/record-config';
 import { loadingInterceptor } from './interceptors/loading-interceptor';
+import { errorInterceptor } from './interceptors/error-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,8 +17,10 @@ export const appConfig: ApplicationConfig = {
         defaultGenre: 'Rock',
       },
     },
+    //The order does not affect our app because both interceptors
+    //handle errors and loading separately.
     provideHttpClient(
-      withInterceptors([loadingInterceptor])
+      withInterceptors([loadingInterceptor, errorInterceptor])
     ),
   ],
 };
