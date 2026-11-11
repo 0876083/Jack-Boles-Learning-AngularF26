@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { RECORD_CONFIG } from './shared/record-config';
@@ -14,5 +15,6 @@ export const appConfig: ApplicationConfig = {
         defaultGenre: 'Rock',
       },
     },
+    provideHttpClient(),
   ],
 };

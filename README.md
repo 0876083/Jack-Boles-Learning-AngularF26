@@ -58,14 +58,18 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-## Assignment 7 - API Information
+## API Information
 
 For Assignment 7, I am using the iTunes Search API to retrieve album information for my record collection application. 
 
 The API provides album titles, artist names, genres, release dates, and album artwork.
 
-**API Documentation** https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/
+**API Documentation:** https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/
 
 **Example Request URL:**
 
 https://itunes.apple.com/search?term=foo+fighters&media=music&entity=album&limit=10
+
+## API Implementation
+I chose option B because it works directly with Angular signals and automatically handles loading and error states. It also lets me keep using my existing add, edit, and 
+delete methods with the resource's writable signal.

@@ -1,11 +1,11 @@
 @if (record(); as r) {
   <article class="detail">
-    <h2>{{ r.title }}</h2>
-    <img [src]="r.image" [alt]="r.title" width="250">
-    <p><strong>Artist:</strong> {{ r.artist }}</p>
-    <p><strong>Genre:</strong> {{ r.genre }}</p>
-    @if (r.yearReleased) {
-      <p><strong>Year Released:</strong> {{ r.yearReleased }}</p>
+    <h2>{{ r.collectionName }}</h2>
+    <img [src]="r.artworkUrl100" [alt]="r.collectionName" width="250">
+    <p><strong>Artist:</strong> {{ r.artistName }}</p>
+    <p><strong>Genre:</strong> {{ r.primaryGenreName }}</p>
+    @if (r.releaseDate) {
+      <p><strong>Year Released:</strong> {{ r.releaseDate }}</p>
     } @else {
       <p>Release year unknown.</p>
     }

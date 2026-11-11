@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { Record } from './record';
+import { RecordService } from './record';
 
 describe('Record', () => {
-  let service: Record;
+  let service: RecordService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Record);
+    service = TestBed.inject(RecordService);
   });
 
   it('should be created', () => {
