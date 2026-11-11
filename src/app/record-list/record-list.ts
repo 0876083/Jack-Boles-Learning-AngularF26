@@ -12,11 +12,15 @@ import { RecordService } from '../services/record';
 export class RecordList {
   private recordService = inject(RecordService);
 
-  recordList = this.recordService.recordList;
-  rockRecordCount = this.recordService.rockRecordCount;
-  recordsWithYear = this.recordService.recordsWithYear;
+  protected recordList = this.recordService.recordList;
+  protected rockRecordCount = this.recordService.rockRecordCount;
+  protected recordsWithYear = this.recordService.recordsWithYear;
+  protected isLoading = this.recordService.isLoading;
+  protected error = this.recordService.error;
 
   handleRecordEvent(event: RecordEvent): void {
-    this.recordService.removeRecord(event.id);
+    if (event.action === 'deleted') {
+      this.recordService.removeRecord(event.id);
+    }
   }
 }

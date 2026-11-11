@@ -13,3 +13,10 @@
 .first {
   font-weight: bold;
 }
+
+.local-note {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 16px;
+}

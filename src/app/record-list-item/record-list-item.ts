@@ -19,4 +19,11 @@ export class RecordListItem {
       action: 'opened',
     });
   }
+
+  protected deleteRecord(): void {
+    this.recordEvent.emit({
+      id: this.record().collectionId,
+      action: 'deleted'
+    });
+  }
 }

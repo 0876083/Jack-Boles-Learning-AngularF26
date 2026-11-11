@@ -24,7 +24,7 @@ export class RecordService {
   });
 
   private records = this.recordResource.value;
-  private recordList = this.records.asReadonly();
+  readonly recordList = this.records.asReadonly();
 
   readonly isLoading = this.recordResource.isLoading;
   readonly error = this.recordResource.error;
@@ -51,7 +51,7 @@ export class RecordService {
   }
 
   nextId(): number {
-    return Math.max(0, ...this.recordList().map((r) => r.collectionId)) + 1;
+    return Math.min(0, ...this.recordList().map((r) => r.collectionId)) - 1;
   }
 
   readonly rockRecords = computed(() =>

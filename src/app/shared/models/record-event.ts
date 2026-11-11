@@ -1,4 +1,4 @@
 export interface RecordEvent {
-  id: number | string;
-  action: 'opened' | 'favourited';
+  id: number;
+  action: 'opened' | 'favourited' | 'deleted';
 }

@@ -73,3 +73,7 @@ https://itunes.apple.com/search?term=foo+fighters&media=music&entity=album&limit
 ## API Implementation
 I chose option B because it works directly with Angular signals and automatically handles loading and error states. It also lets me keep using my existing add, edit, and 
 delete methods with the resource's writable signal.
+
+## Local Changes
+Any records that are added, edited, or deleted are only changed locally in the application's angular signal. When the page is refreshed, these changes disappear because
+the application loads the original album data from the iTunes Search API again.
