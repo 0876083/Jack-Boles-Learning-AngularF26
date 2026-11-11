@@ -45,3 +45,10 @@
     padding: 15px;
   }
 }
+
+.loading-indicator {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}

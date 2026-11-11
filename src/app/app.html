@@ -14,6 +14,10 @@
     <button type="button" (click)="toggleGuard()">
       {{ guardEnabled() ? 'Unlock Editing' : 'Lock Editing' }}
     </button>
+
+    @if (loadingService.isLoading()) {
+      <span class="loading-indicator">Loading...</span>
+    }
   </nav>
 
   <router-outlet />

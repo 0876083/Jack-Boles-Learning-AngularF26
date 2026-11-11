@@ -1,8 +1,9 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { RECORD_CONFIG } from './shared/record-config';
+import { loadingInterceptor } from './interceptors/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,8 @@ export const appConfig: ApplicationConfig = {
         defaultGenre: 'Rock',
       },
     },
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors([loadingInterceptor])
+    ),
   ],
 };
