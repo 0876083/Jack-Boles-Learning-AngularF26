@@ -15,6 +15,6 @@ export class RecordDetail {
 
   record = computed(() =>
     this.recordService.recordList().find(
-      r => r.id === Number(this.id()))
+      r => r.collectionId === Number(this.id()))
   );
 }

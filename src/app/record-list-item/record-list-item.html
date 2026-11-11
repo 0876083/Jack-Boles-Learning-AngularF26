@@ -1,11 +1,11 @@
 <div class="record-card">
-  <img [src]="record().image" [alt]="record().title">
+  <img [src]="record().artworkUrl100" [alt]="record().collectionName">
 
-  <h2>{{ record().title }}</h2>
+  <h2>{{ record().collectionName }}</h2>
 
-  <p>Artist: {{ record().artist }}</p>
+  <p>Artist: {{ record().artistName }}</p>
 
-  @switch (record().genre) {
+  @switch (record().primaryGenreName) {
     @case ('Rock') {
       <span class="badge rock">Rock</span>
     }
@@ -20,13 +20,13 @@
     }
   }
 
-  @if (record().yearReleased) {
-    <p>Released: {{ record().yearReleased }}</p>
+  @if (record().releaseDate) {
+    <p>Released: {{ record().releaseDate }}</p>
   } @else {
     <p>Release year unknown</p>
   }
 
-<a [routerLink]="['/records', record().id]" class="details-link">View details</a>
-<a [routerLink]="['/records/edit', record().id]" class="edit-link">Edit Record</a>
+  <button [routerLink]="['/records', record().collectionId]" class="details-link">View Details</button>
+  <button [routerLink]="['/records/edit', record().collectionId]" class="edit-link">Edit Record</button>
 </div>
 

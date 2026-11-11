@@ -3,43 +3,43 @@
 <form class="record-form" [formGroup]="recordForm" (ngSubmit)="onSubmit()">
   <label>
     Artist:
-    <input type="text" formControlName="artist" />
+    <input type="text" formControlName="artistName" />
   </label>
 
-  @if (recordForm.controls.artist.touched &&
-  recordForm.controls.artist.hasError('required')) {
+  @if (recordForm.controls.artistName.touched &&
+  recordForm.controls.artistName.hasError('required')) {
     <p class="error">Artist is required.</p>
   }
 
   <label>
     Album Title:
-    <input type="text" formControlName="title" />
+    <input type="text" formControlName="collectionName" />
   </label>
 
-  @if (recordForm.controls.title.touched &&
-  recordForm.controls.title.hasError('required')) {
+  @if (recordForm.controls.collectionName.touched &&
+  recordForm.controls.collectionName.hasError('required')) {
     <p class="error">Album title is required.</p>
   }
 
-  @if (recordForm.controls.title.touched &&
-  recordForm.controls.title.hasError('minlength')) {
+  @if (recordForm.controls.collectionName.touched &&
+  recordForm.controls.collectionName.hasError('minlength')) {
     <p class="error">Album title must be at least 2 characters long.</p>
   }
 
-  @if (recordForm.controls.title.touched &&
-  recordForm.controls.title.hasError('whitespace')) {
+  @if (recordForm.controls.collectionName.touched &&
+  recordForm.controls.collectionName.hasError('whitespace')) {
     <p class="error">Album title cannot contain only spaces.</p>
   }
 
-  @if (recordForm.controls.artist.touched &&
-  recordForm.controls.title.touched &&
+  @if (recordForm.controls.artistName.touched &&
+  recordForm.controls.collectionName.touched &&
   recordForm.hasError('artistTitleMatch')) {
     <p class="error">Artist and album title cannot be the same.</p>
   }
 
   <label>
     Genre:
-    <select formControlName="genre">
+    <select formControlName="primaryGenreName">
       <option value="Rock">Rock</option>
       <option value="Grunge">Grunge</option>
       <option value="Punk">Punk</option>
@@ -47,19 +47,19 @@
     </select>
   </label>
 
-  @if (recordForm.controls.genre.touched &&
-  recordForm.controls.genre.hasError('required')) {
+  @if (recordForm.controls.primaryGenreName.touched &&
+  recordForm.controls.primaryGenreName.hasError('required')) {
     <p class="error">Genre is required.</p>
   }
 
   <label>
-    Year Released:
-    <input type="number" formControlName="yearReleased" />
+    Release Date:
+    <input type="date" formControlName="releaseDate" />
   </label>
 
   <label>
     Album Artwork:
-    <input type="text" formControlName="image" />
+    <input type="text" formControlName="artworkUrl100" />
   </label>
 
   <button type="submit" [disabled]="recordForm.invalid">

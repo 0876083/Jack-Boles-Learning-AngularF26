@@ -8,27 +8,28 @@ export class MockRecordService {
 
   private records = signal<Record[]>([
     {
-      id: 1,
-      artist: 'Mock Artist 1',
-      title: 'Mock Title 1',
-      genre: 'Rock',
-      yearReleased: 2026,
-      image: 'images/colour-and-shape.jpg'
+      collectionId: 1,
+      artistName: 'Mock Artist 1',
+      collectionName: 'Mock Title 1',
+      primaryGenreName: 'Rock',
+      releaseDate: '2026',
+      artworkUrl100: 'images/colour-and-shape.jpg'
     },
     {
-      id: 2,
-      artist: 'Mock Artist 2',
-      title: 'Mock Title 2',
-      genre: 'Grunge',
-      yearReleased: 2026,
-      image: 'images/in-utero.jpg'
+      collectionId: 2,
+      artistName: 'Mock Artist 2',
+      collectionName: 'Mock Title 2',
+      primaryGenreName: 'Grunge',
+      releaseDate: '2026',
+      artworkUrl100: 'images/in-utero.jpg'
     },
     {
-      id: 3,
-      artist: 'Mock Artist 3',
-      title: 'Mock Title 3',
-      genre: 'Punk',
-      image: 'images/dookie.jpg'
+      collectionId: 3,
+      artistName: 'Mock Artist 3',
+      collectionName: 'Mock Title 3',
+      primaryGenreName: 'Punk',
+      releaseDate: '2025',
+      artworkUrl100: 'images/dookie.jpg'
     }
   ]);
 
@@ -39,13 +40,13 @@ export class MockRecordService {
   }
 
   removeRecord(id: number | string): void {
-    this.records.update(list => list.filter(record => record.id !== id));
+    this.records.update(list => list.filter(record => record.collectionId !== id));
   }
 
   updateRecord(r: Record): void {
     this.records.update(records =>
       records.map(record =>
-        record.id === r.id ? r : record
+        record.collectionId === r.collectionId ? r : record
       )
     );
   }
@@ -54,7 +55,7 @@ export class MockRecordService {
 
   readonly rockRecords = computed(() =>
     this.records().filter(
-      record => record.genre === this.config.defaultGenre
+      record => record.primaryGenreName === this.config.defaultGenre
     )
   );
 
@@ -63,6 +64,6 @@ export class MockRecordService {
   );
 
   readonly recordsWithYear = computed(() =>
-    this.records().filter(record => record.yearReleased)
+    this.records().filter(record => record.releaseDate)
   );
 }

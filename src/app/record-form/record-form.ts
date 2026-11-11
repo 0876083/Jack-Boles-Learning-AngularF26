@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { RecordService } from '../services/record';
 
 function noWhitespaceValidator(control: AbstractControl) {
-  if (control.value.trim() !== '' && control.value.trim() === '') {
+  if (control.value !== '' && control.value.trim() === '') {
     return { whitespace: true };
   }
 
@@ -38,15 +38,15 @@ export class RecordForm {
   protected isEditMode = computed(() => this.id() !== undefined);
 
   protected recordForm = this.fb.nonNullable.group({
-    artist: ['', Validators.required],
-    title: ['', [
+    artistName: ['', Validators.required],
+    collectionName: ['', [
       Validators.required,
       Validators.minLength(2),
       noWhitespaceValidator
     ]],
-    genre: ['Rock', Validators.required],
-    yearReleased: [2026],
-    image: [''],
+    primaryGenreName: ['Rock', Validators.required],
+    releaseDate: [''],
+    artworkUrl100: [''],
   }, { validators: artistTitleValidator });
 
   constructor() {
@@ -60,13 +60,7 @@ export class RecordForm {
       const record = this.recordService.getRecord(Number(id));
 
       if (record) {
-        this.recordForm.patchValue({
-          artist: record.artist,
-          title: record.title,
-          genre: record.genre,
-          yearReleased: record.yearReleased ?? 2026,
-          image: record.image,
-        });
+        this.recordForm.patchValue(record);
       }
     });
   }
@@ -77,15 +71,15 @@ export class RecordForm {
     }
 
     const formValue = this.recordForm.getRawValue();
-    const id = this.isEditMode() ? Number(this.id()) : this.recordService.nextId();
+    const collectionId = this.isEditMode() ? Number(this.id()) : this.recordService.nextId();
 
     if (this.isEditMode()) {
-      this.recordService.updateRecord({ id, ...formValue });
+      this.recordService.updateRecord({ collectionId, ...formValue });
     } else {
-      this.recordService.addRecord({ id, ...formValue });
+      this.recordService.addRecord({ collectionId, ...formValue });
     }
 
     this.recordForm.reset();
-    this.router.navigate(['/records', id]);
+    this.router.navigate(['/records', collectionId]);
   }
 }

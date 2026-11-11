@@ -4,7 +4,7 @@
 <p>Records with release year: {{ recordsWithYear().length }}</p>
 
 <div class="record-list">
-  @for (records of recordList(); track records.id; let even = $even, odd = $odd, count = $count, first = $first, last = $last) {
+  @for (records of recordList(); track records.collectionId; let even = $even, odd = $odd, count = $count, first = $first, last = $last) {
     @if (first) {
       <h2>Showing {{ count }} records</h2>
       <span class="first">First Record</span>

@@ -15,7 +15,7 @@ export class RecordListItem {
 
   protected openRecord(): void {
     this.recordEvent.emit({
-      id: this.record().id,
+      id: this.record().collectionId,
       action: 'opened',
     });
   }
