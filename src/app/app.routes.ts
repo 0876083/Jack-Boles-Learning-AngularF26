@@ -26,3 +26,4 @@ export const routes: Routes = [
     loadComponent: () => import('./record-detail/record-detail').then(m => m.RecordDetail)
   }
 ];
+

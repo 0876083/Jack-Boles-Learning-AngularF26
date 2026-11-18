@@ -93,3 +93,4 @@ chunk-SMNZNNME.js   | record-detail |   1.84 kB |               833 bytes
 
 I changed the detail, add, edit, and 404 pages to use lazy loading with loadComponent() so they only load when needed.
 The record list page stays loaded because it is the landing page that users see when they first open the application.
+
