@@ -3,7 +3,7 @@
 <form class="record-form" [formGroup]="recordForm" (ngSubmit)="onSubmit()">
   <label>
     Artist:
-    <input type="text" formControlName="artistName" />
+    <input #firstField type="text" formControlName="artistName" />
   </label>
 
   @if (recordForm.controls.artistName.touched &&

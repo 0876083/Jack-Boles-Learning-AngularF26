@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, input } from '@angular/core';
+import { Component, ElementRef, viewChild, afterNextRender, computed, effect, inject, input } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecordService } from '../services/record';
@@ -37,6 +37,8 @@ export class RecordForm {
 
   protected isEditMode = computed(() => this.id() !== undefined);
 
+  firstField = viewChild<ElementRef<HTMLInputElement>>('firstField');
+
   protected recordForm = this.fb.nonNullable.group({
     artistName: ['', Validators.required],
     collectionName: ['', [
@@ -50,6 +52,11 @@ export class RecordForm {
   }, { validators: artistTitleValidator });
 
   constructor() {
+    //afterNextRender is used instead of ngOnInit because the input needs to be rendered before it can receive focus.
+    afterNextRender(() => {
+      this.firstField()?.nativeElement.focus();
+    });
+
     effect(() => {
       const id = this.id();
 
