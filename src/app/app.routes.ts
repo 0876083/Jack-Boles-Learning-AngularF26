@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { RecordList } from './record-list/record-list';
-import { recordEditGuard } from './services/record-edit-guard';
 
 export const routes: Routes = [
   {
@@ -13,13 +12,8 @@ export const routes: Routes = [
     component: RecordList
   },
   {
-    path: 'records/add',
-    loadComponent: () => import('./record-form/record-form').then(m => m.RecordForm)
-  },
-  {
-    path: 'records/edit/:id',
-    loadComponent: () => import('./record-form/record-form').then(m => m.RecordForm),
-    canActivate: [recordEditGuard]
+    path: 'records',
+    loadChildren: () => import('./record.routes')
   },
   {
     path: 'records/:id',
