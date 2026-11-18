@@ -94,3 +94,14 @@ chunk-SMNZNNME.js   | record-detail |   1.84 kB |               833 bytes
 I changed the detail, add, edit, and 404 pages to use lazy loading with loadComponent() so they only load when needed.
 The record list page stays loaded because it is the landing page that users see when they first open the application.
 
+## Lifecycle
+### What happened when you read this.id() in the constructor, and why?
+When I tried reading this.id() in the constructor, I got an error because the required input did not have a value yet. This happened
+because the constructor runs before Angular sets the route parameter. Moving the code into ngOnInit() fixed the issue because the input was
+available by then.
+
+### What action in your app caused ngOnDestroy to run, and what does that tell you about what the router does with a page when you leave it?
+The ngOnDestroy() method ran when I left the record detail page and returned to the record list. This happened when I clicked the back link in my
+application or used the browser's back button. It shows that the router destroys the detail component when navigating away from the page.
+
+
