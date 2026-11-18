@@ -3,9 +3,9 @@
 
   <h2>{{ record().collectionName }}</h2>
 
-  <p>Artist: {{ record().artistName }}</p>
+  <p>Artist: {{ record().artistName | uppercase }}</p>
 
-  @switch (record().primaryGenreName) {
+  @switch (record().primaryGenreName | titlecase) {
     @case ('Rock') {
       <span class="badge rock">Rock</span>
     }
@@ -16,12 +16,12 @@
       <span class="badge punk">Punk</span>
     }
     @default {
-      <span class="badge">Other Genre</span>
+      <span class="badge">{{ record().primaryGenreName | titlecase }}</span>
     }
   }
 
   @if (record().releaseDate) {
-    <p>Released: {{ record().releaseDate }}</p>
+    <p>Released: {{ record().releaseDate | date: 'longDate' }}</p>
   } @else {
     <p>Release year unknown</p>
   }
