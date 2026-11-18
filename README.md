@@ -77,3 +77,19 @@ delete methods with the resource's writable signal.
 ## Local Changes
 Any records that are added, edited, or deleted are only changed locally in the application's angular signal. When the page is refreshed, these changes disappear because
 the application loads the original album data from the iTunes Search API again.
+
+## Lazy Loading
+Before Lazy Loading
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-DXT4XTNF.js    | main          | 355.47 kB |                93.93 kB
+styles-5INURTSO.css | styles        |   0 bytes |                 0 bytes
+
+                    | Initial total | 355.47 kB |                93.93 kB
+
+After Lazy Loading
+Lazy chunk files    | Names         |  Raw size | Estimated transfer size
+chunk-EEZ2TPC7.js   | record-form   |  49.59 kB |                11.00 kB
+chunk-SMNZNNME.js   | record-detail |   1.84 kB |               833 bytes
+
+I changed the detail, add, edit, and 404 pages to use lazy loading with loadComponent() so they only load when needed.
+The record list page stays loaded because it is the landing page that users see when they first open the application.
