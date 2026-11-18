@@ -5,6 +5,10 @@
 
   <p>Artist: {{ record().artistName | uppercase }}</p>
 
+  <p>
+    Album: {{ record().collectionName | albumLabel:record().artistName | titlecase }}
+  </p>
+
   @switch (record().primaryGenreName | titlecase) {
     @case ('Rock') {
       <span class="badge rock">Rock</span>
@@ -22,6 +26,7 @@
 
   @if (record().releaseDate) {
     <p>Released: {{ record().releaseDate | date: 'longDate' }}</p>
+    <p>Release Year: {{ record().releaseDate | releaseYear }}</p>
   } @else {
     <p>Release year unknown</p>
   }
