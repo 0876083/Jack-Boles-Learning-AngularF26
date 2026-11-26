@@ -33,6 +33,6 @@
 
   <button [routerLink]="['/records', record().collectionId]" class="details-link">View Details</button>
   <button [routerLink]="['/records/edit', record().collectionId]" class="edit-link">Edit Record</button>
-  <button type="button" (click)="deleteRecord()">Delete</button>
+  <button type="button" appConfirm="Delete this record?" (confirmed)="deleteRecord()">Delete</button>
 </div>
 

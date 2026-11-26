@@ -6,9 +6,10 @@ import { TitleCasePipe, UpperCasePipe, DatePipe } from '@angular/common';
 import { ReleaseYearPipe } from '../pipes/release-year-pipe';
 import { AlbumLabelPipe } from '../pipes/album-label-pipe';
 import { Highlight } from '../directives/highlight';
+import { Confirm } from '../directives/confirm';
 
 @Component({
-  imports: [RouterLink, TitleCasePipe, UpperCasePipe, DatePipe, ReleaseYearPipe, AlbumLabelPipe, Highlight],
+  imports: [RouterLink, TitleCasePipe, UpperCasePipe, DatePipe, ReleaseYearPipe, AlbumLabelPipe, Highlight, Confirm],
   selector: 'app-record-list-item',
   styleUrl: './record-list-item.css',
   templateUrl: './record-list-item.html',
