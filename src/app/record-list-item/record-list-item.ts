@@ -5,9 +5,10 @@ import { RouterLink } from '@angular/router';
 import { TitleCasePipe, UpperCasePipe, DatePipe } from '@angular/common';
 import { ReleaseYearPipe } from '../pipes/release-year-pipe';
 import { AlbumLabelPipe } from '../pipes/album-label-pipe';
+import { Highlight } from '../directives/highlight';
 
 @Component({
-  imports: [RouterLink, TitleCasePipe, UpperCasePipe, DatePipe, ReleaseYearPipe, AlbumLabelPipe],
+  imports: [RouterLink, TitleCasePipe, UpperCasePipe, DatePipe, ReleaseYearPipe, AlbumLabelPipe, Highlight],
   selector: 'app-record-list-item',
   styleUrl: './record-list-item.css',
   templateUrl: './record-list-item.html',

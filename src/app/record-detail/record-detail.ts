@@ -1,9 +1,10 @@
 import { Component, computed, inject, input, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RecordService } from '../services/record';
+import { Highlight } from '../directives/highlight';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, Highlight ],
   selector: 'app-record-detail',
   styleUrl: './record-detail.css',
   templateUrl: './record-detail.html',
